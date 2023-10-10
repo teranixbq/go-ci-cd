@@ -46,8 +46,8 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            sudo docker stop dockerci
-            sudo docker rm dockerci
-            sudo docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/dockercicd:latest
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dockercicd:latest
-            sudo docker run -d -p 8080:8080 -e SERVERPORT=${{ secrets.SERVERPORT }} -e DBUSER=${{ secrets.DBUSER }} -e DBPASS=${{ secrets.DBPASS }} -e DBHOST=${{ secrets.DBHOST }} -e DBPORT=${{ secrets.DBPORT }} -e DBNAME=${{ secrets.DBNAME }} --name dockerci ${{ secrets.DOCKERHUB_USERNAME }}/dockercicd:latest
+            docker stop dockerci
+            docker rm dockerci
+            docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/dockercicd:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dockercicd:latest
+            docker run -d -p 8080:8080 -e SERVERPORT=${{ secrets.SERVERPORT }} -e DBUSER=${{ secrets.DBUSER }} -e DBPASS=${{ secrets.DBPASS }} -e DBHOST=${{ secrets.DBHOST }} -e DBPORT=${{ secrets.DBPORT }} -e DBNAME=${{ secrets.DBNAME }} --name dockerci ${{ secrets.DOCKERHUB_USERNAME }}/dockercicd:latest
