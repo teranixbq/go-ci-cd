@@ -48,6 +48,6 @@ jobs:
           script: |
             docker stop dockercicd
             docker rm dockercicd
-            docker rmi ${{ secrets.DOCKERUSER }}/dockercicd:latest
-            docker pull ${{ secrets.DOCKERUSER }}/dockercicd:latest
+            docker rmi ${{ secrets.DOCKERUSER }}/dockercicd
+            docker pull ${{ secrets.DOCKERUSER }}/dockercicd
             docker run -d -p 8080:8080 -e SERVERPORT=${{ secrets.SERVERPORT }} -e DBUSER=${{ secrets.DBUSER }} -e DBPASS=${{ secrets.DBPASS }} -e DBHOST=${{ secrets.DBHOST }} -e DBPORT=${{ secrets.DBPORT }} -e DBNAME=${{ secrets.DBNAME }} --name dockercicd ${{ secrets.DOCKERUSER }}/dockercicd:latest
