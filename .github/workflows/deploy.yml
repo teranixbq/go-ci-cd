@@ -1,4 +1,4 @@
-name: Deploy App to Server ECS
+name: Deploy App to Server
 
 on:
   push:
